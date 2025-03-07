@@ -1,9 +1,12 @@
-package br.com.backend.desafio.domain;
+package br.com.backend.desafio.application;
 
-import br.com.backend.desafio.domain.model.Pneu;
+import lombok.Getter;
+import lombok.Setter;
+import br.com.backend.desafio.domain.Pneu;
 
+@Getter
+@Setter
 public class PneuDTO {
-
 	private Long id;
 	private String marca;
 	private String modelo;
@@ -17,25 +20,4 @@ public class PneuDTO {
 		this.tamanho = pneu.getTamanho();
 		this.preco = pneu.getPreco();
 	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public String getMarca() {
-		return marca;
-	}
-
-	public String getModelo() {
-		return modelo;
-	}
-
-	public String getTamanho() {
-		return tamanho;
-	}
-
-	public double getPreco() {
-		return preco;
-	}
-
 }
