@@ -18,4 +18,5 @@ public class Pneu {
 	private String modelo;
 	private String tamanho;
 	private double preco;
+	private String imageUrl;
 }

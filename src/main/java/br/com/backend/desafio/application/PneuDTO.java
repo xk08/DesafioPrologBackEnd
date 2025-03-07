@@ -12,6 +12,7 @@ public class PneuDTO {
 	private String modelo;
 	private String tamanho;
 	private double preco;
+	private String imageUrl;
 
 	public PneuDTO(Pneu pneu) {
 		this.id = pneu.getId();
@@ -19,5 +20,6 @@ public class PneuDTO {
 		this.modelo = pneu.getModelo();
 		this.tamanho = pneu.getTamanho();
 		this.preco = pneu.getPreco();
+		this.imageUrl = pneu.getImageUrl();
 	}
 }
