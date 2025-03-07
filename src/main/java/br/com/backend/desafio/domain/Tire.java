@@ -4,19 +4,19 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "pneu")
+@Table(name = "tire")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Pneu {
+public class Tire {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private String marca;
-	private String modelo;
-	private String tamanho;
-	private double preco;
+	private int id;
+	private String brand;
+	private String model;
+	private String size;
+	private double price;
 	private String imageUrl;
 }

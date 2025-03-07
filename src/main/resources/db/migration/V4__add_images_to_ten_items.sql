@@ -1,4 +1,4 @@
-UPDATE pneu
+UPDATE tire
 SET image_url = CASE
     WHEN id = 1 THEN 'https://static.vecteezy.com/system/resources/previews/009/380/151/non_2x/car-tyre-clipart-design-illustration-free-png.png'
     WHEN id = 2 THEN 'https://static.vecteezy.com/system/resources/previews/009/398/543/non_2x/car-tyre-clipart-design-illustration-free-png.png'

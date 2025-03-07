@@ -1,0 +1,7 @@
+CREATE TABLE tire (
+    id SERIAL PRIMARY KEY,
+    brand VARCHAR(50) NOT NULL,
+    model VARCHAR(50) NOT NULL,
+    size VARCHAR(20) NOT NULL,
+    price DECIMAL(10,2) NOT NULL
+);

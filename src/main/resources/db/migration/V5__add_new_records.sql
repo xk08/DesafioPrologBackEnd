@@ -1,4 +1,4 @@
-INSERT INTO pneu (id, marca, modelo, tamanho, preco, image_url) VALUES
+INSERT INTO tire (id, brand, model, size, price, image_url) VALUES
 (11, 'Pirelli', 'Cinturato P7', '205/55R16', 350.00, 'https://static.vecteezy.com/system/resources/previews/009/380/151/non_2x/car-tyre-clipart-design-illustration-free-png.png'),
 (12, 'Michelin', 'Primacy 4', '215/60R17', 420.00, 'https://static.vecteezy.com/system/resources/previews/009/398/543/non_2x/car-tyre-clipart-design-illustration-free-png.png'),
 (13, 'Goodyear', 'Eagle F1', '225/45R18', 500.00, 'https://static.vecteezy.com/system/resources/previews/009/400/602/non_2x/car-tyre-clipart-design-illustration-free-png.png'),
