@@ -1,0 +1,7 @@
+CREATE TABLE pneu (
+    id SERIAL PRIMARY KEY,
+    marca VARCHAR(50) NOT NULL,
+    modelo VARCHAR(50) NOT NULL,
+    tamanho VARCHAR(20) NOT NULL,
+    preco DECIMAL(10,2) NOT NULL
+);
