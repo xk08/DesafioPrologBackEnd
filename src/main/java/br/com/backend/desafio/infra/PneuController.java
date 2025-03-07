@@ -1,6 +1,8 @@
 package br.com.backend.desafio.infra;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 import br.com.backend.desafio.application.PneuDTO;
@@ -22,8 +24,12 @@ public class PneuController {
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<PneuDTO> buscarPorId(@PathVariable Long id) {
-		return service.buscarPorId(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+	public ResponseEntity<Object> buscarPorId(@PathVariable Long id) {
+		try {
+			Optional<PneuDTO> pneu = service.buscarPorId(id);
+			return ResponseEntity.ok(pneu);
+		} catch (RuntimeException e) {
+			return ResponseEntity.status(404).body(String.format("{\"API message\": \"%s\"}", e.getMessage()));
+		}
 	}
-
 }

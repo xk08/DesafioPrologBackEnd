@@ -21,6 +21,9 @@ public class PneuService {
 	}
 
 	public Optional<PneuDTO> buscarPorId(Long id) {
-		return repository.findById(id).map(PneuDTO::new);
+		return Optional.ofNullable(repository.findById(id).map(PneuDTO::new).orElseThrow(() -> {
+			System.out.println("Item não encontrado");
+			return new RuntimeException("Item não encontrado");
+		}));
 	}
 }
