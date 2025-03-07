@@ -38,6 +38,8 @@
     -   `domain` 🏗️ Regras de negócio
         
     -   `infra` 🔌 Integrações e infraestrutura
+    
+    -   `config` 🛠️ Configurações globais
         
 
 ----------
@@ -111,6 +113,7 @@ Isso irá subir **um container com duas imagens**:
 
 📌 A API expõe os seguintes endpoints:
 
+
 📥 **Listar todos os pneus:**
 
 ```
@@ -119,6 +122,7 @@ GET http://localhost:8080/api/tires
 
 🔹 **Retorno:** Lista de objetos JSON
 
+
 📥 **Buscar um pneu por ID:**
 
 ```
@@ -126,5 +130,14 @@ GET http://localhost:8080/api/tires/{id}
 ```
 
 🔹 **Retorno:** Um objeto JSON correspondente
+
+
+📥 **Documentação online (Swagger):**
+
+```
+http://localhost:8080/swagger-ui.html
+```
+
+🔹 **Retorno:** Página web com documentação e ambiente de teste interativo
 
 ----------
