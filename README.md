@@ -38,6 +38,8 @@
     -   `domain` 🏗️ Regras de negócio
         
     -   `infra` 🔌 Integrações e infraestrutura
+    
+    -   `config` 🛠️ Configurações globais
         
 
 ----------
@@ -57,6 +59,8 @@
 -   **Docker** 27.5.1 🐳
     
 -   **Postman** (testes de API) 📬
+
+-   **Spring Boot Test** (testes de unidade e teste de integração) 🚀
     
 
 ----------
@@ -111,6 +115,7 @@ Isso irá subir **um container com duas imagens**:
 
 📌 A API expõe os seguintes endpoints:
 
+
 📥 **Listar todos os pneus:**
 
 ```
@@ -119,6 +124,7 @@ GET http://localhost:8080/api/tires
 
 🔹 **Retorno:** Lista de objetos JSON
 
+
 📥 **Buscar um pneu por ID:**
 
 ```
@@ -126,5 +132,28 @@ GET http://localhost:8080/api/tires/{id}
 ```
 
 🔹 **Retorno:** Um objeto JSON correspondente
+
+
+📥 **Documentação online (Swagger):**
+
+```
+http://localhost:8080/swagger-ui.html
+```
+
+🔹 **Retorno:** Página web com documentação e ambiente de teste interativo
+
+### 🚀 Testes (unidade e integração)
+
+🔴 Foram criados 8 testes para o projeto (5 unidade e 3 integração com a API)
+
+🔴 Apresento 2 formas de executar os testes:
+
+
+1.  **mvn test** (Precisa ter o Apache Maven instalado)
+    
+2.  **Via IDE** (Interface de testes JUnit)
+    
+
+🔴 **Atenção:** O container banco de dados (PostgresSQL) precisa estar ativo no Docker para realizar os testes de integração.
 
 ----------
