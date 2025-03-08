@@ -2,10 +2,14 @@ package br.com.backend.desafio;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import br.com.backend.desafio.infra.exception.ApplicationRouteException;
 
 @SpringBootApplication
 @RestController
+@RequestMapping
 public class Application {
 
 	public static void main(String[] args) {
@@ -13,15 +17,16 @@ public class Application {
 		System.out.println("Server started. Waiting for requests...");
 	}
 
-	@GetMapping("/{path}")
-	public String handleRequest(@PathVariable String path) {
-		System.out.println("Path: " + path);
-		return "Path: " + path;
-	}
 
 	@GetMapping("/")
 	public String defaultRoute() {
-		System.out.println("Default path");
+		System.out.println("Default route");
 		return "Default path";
 	}
+
+	@GetMapping("/**")
+	public void handleInvalidRoutes() {
+		throw new ApplicationRouteException("Invalid route");
+	}
+
 }
