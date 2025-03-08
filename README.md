@@ -111,7 +111,7 @@ Isso irá subir **um container com duas imagens**:
 
 ----------
 
-## 🔗 Endpoints Disponíveis
+## 🔗 Endpoints Disponíveis (Local e PROD)
 
 📌 A API expõe os seguintes endpoints:
 
@@ -120,6 +120,10 @@ Isso irá subir **um container com duas imagens**:
 
 ```
 GET http://localhost:8080/api/tires
+```
+
+```
+GET https://desafio-prologapp-backend-api-a6c310bb22b0.herokuapp.com/api/tires
 ```
 
 🔹 **Retorno:** Lista de objetos JSON
@@ -131,16 +135,12 @@ GET http://localhost:8080/api/tires
 GET http://localhost:8080/api/tires/{id}
 ```
 
+```
+GET https://desafio-prologapp-backend-api-a6c310bb22b0.herokuapp.com/api/tires/{id}
+```
+
 🔹 **Retorno:** Um objeto JSON correspondente
 
-
-📥 **Documentação online (Swagger):**
-
-```
-http://localhost:8080/swagger-ui.html
-```
-
-🔹 **Retorno:** Página web com documentação e ambiente de teste interativo
 
 ### 🚀 Testes (unidade e integração)
 
