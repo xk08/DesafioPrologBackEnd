@@ -17,11 +17,10 @@ public class Application {
 		System.out.println("Server started. Waiting for requests...");
 	}
 
-
 	@GetMapping("/")
 	public String defaultRoute() {
 		System.out.println("Default route");
-		return "Default path";
+		return "Default route";
 	}
 
 	@GetMapping("/**")
