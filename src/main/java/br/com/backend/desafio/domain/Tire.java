@@ -5,18 +5,17 @@ import lombok.*;
 
 @Entity
 @Table(name = "tire")
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Tire {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	private String brand;
 	private String model;
 	private String size;
-	private double price;
+	private Double price;
 	private String imageUrl;
 }

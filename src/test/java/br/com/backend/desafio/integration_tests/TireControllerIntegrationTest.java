@@ -16,7 +16,7 @@ class TireControllerIntegrationTest {
 	private MockMvc mockMvc;
 
 	/***
-	 * TESTE 1: Deve buscar a lista completa de pneus e trazes detalhes do primeiro
+	 * TESTE 1: Deve buscar a lista completa de pneus e trazer alguns detalhes do primeiro
 	 * registro/pneu
 	 ***/
 	@Test
@@ -42,10 +42,10 @@ class TireControllerIntegrationTest {
 	/*** TESTE 3: Deve obter erro 404 ao buscar um pneu com ID inválido ***/
 	@Test
 	void testFindTireById_ShouldReturn404WhenNotFound() throws Exception {
-		// Usando um ID que não existe
+		// Supomos que o ID 100 não existe no banco de dados
 		int tireId = 1000;
 
 		mockMvc.perform(get("/api/tires/" + tireId)).andExpect(status().isNotFound())
-				.andExpect(jsonPath("$.['API message']").value("Item not found"));
+				.andExpect(jsonPath("$.['message']").value("Tire not found by ID"));
 	}
 }

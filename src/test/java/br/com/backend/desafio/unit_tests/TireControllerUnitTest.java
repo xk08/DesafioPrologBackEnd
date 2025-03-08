@@ -23,10 +23,11 @@ class TireControllerUnitTest {
 	@InjectMocks
 	private TireController tireController;
 
-	/*** TESTE 5: Deve dar erro ao tentar acessar uma rota desconhecida pela API ***/
+	/***
+	 * TESTE 5: Deve dar erro ao tentar acessar uma rota/path desconhecido pela API
+	 ***/
 	@Test
 	void testInvalidRoute_ShouldReturn404() throws Exception {
-		/// Realiza uma requisição GET para uma rota inválida e espera que o status da resposta seja 404 (Not Found)
 		mockMvc = MockMvcBuilders.standaloneSetup(tireController).build();
 		mockMvc.perform(get("/api/tires/xpto/other")).andExpect(status().isNotFound());
 	}

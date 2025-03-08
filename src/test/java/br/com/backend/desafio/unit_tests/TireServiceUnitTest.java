@@ -29,7 +29,6 @@ class TireServiceUnitTest {
 
 	@BeforeEach
 	void setUp() {
-		// Criando objetos para os testes
 		tire1 = new Tire(1, "Michelin", "X-123", "205/55 R16", 500.0, "http://image.com/1");
 		tire2 = new Tire(2, "Pirelli", "PZero", "225/50 R17", 600.0, "http://image.com/2");
 	}
@@ -42,8 +41,8 @@ class TireServiceUnitTest {
 		List<TireDTO> result = service.listAllTires();
 
 		assertEquals(2, result.size()); // Verifica se retornou 2 pneus
-		assertEquals("Michelin", result.get(0).getBrand()); // Verifica se o primeiro é Michelin
-		assertEquals("Pirelli", result.get(1).getBrand()); // Verifica se o segundo é Pirelli
+		assertEquals("Michelin", result.get(0).brand()); // Verifica se o primeiro é Michelin
+		assertEquals("Pirelli", result.get(1).brand()); // Verifica se o segundo é Pirelli
 
 		verify(repository, times(1)).findAll(); // Garante que findAll() foi chamado uma vez
 	}
@@ -52,11 +51,11 @@ class TireServiceUnitTest {
 	@Test
 	void testFindTireById_ExistingId() {
 		when(repository.findById(1)).thenReturn(Optional.of(tire1));
-		Optional<TireDTO> result = service.findTireById(1);
+		Optional<TireDTO> result = Optional.ofNullable(service.findTireById(1));
 
-		assertTrue(result.isPresent()); // O objeto deve estar presente
-		assertEquals("Michelin", result.get().getBrand()); // Deve ser o Michelin
-		verify(repository, times(1)).findById(1); // Garante que findById() foi chamado uma vez
+		assertTrue(result.isPresent());
+		assertEquals("Michelin", result.get().brand());
+		verify(repository, times(1)).findById(1);
 	}
 
 	/*** TESTE 3: Deve lançar exceção ao buscar um pneu inexistente (com base no ID) ***/
@@ -67,17 +66,17 @@ class TireServiceUnitTest {
 			service.findTireById(1000);
 		});
 
-		assertEquals("Item not found", exception.getMessage()); // Verifica a mensagem de erro
-		verify(repository, times(1)).findById(1000); // Garante que findById() foi chamado
+		assertEquals("Tire not found by ID", exception.getMessage()); // Verifica a mensagem de erro lançada na exception
+		verify(repository, times(1)).findById(1000);
 	}
 
-	/*** TESTE 4: Deve retornar lista vazia (se não houver pneus) ***/
+	/*** TESTE 4: Deve retornar lista vazia se não houver pneus ***/
 	@Test
 	void testListAllTires_EmptyList() {
 		when(repository.findAll()).thenReturn(Arrays.asList());
 		List<TireDTO> result = service.listAllTires();
 
-		assertEquals(0, result.size()); // Verifica se retornou uma lista vazia
-		verify(repository, times(1)).findAll(); // Garante que findAll() foi chamado
+		assertEquals(0, result.size());
+		verify(repository, times(1)).findAll();
 	}
 }
